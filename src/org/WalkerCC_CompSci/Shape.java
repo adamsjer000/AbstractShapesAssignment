@@ -17,11 +17,20 @@ public abstract class Shape {
     }
 
     private double CalculateSideLength(Point point0, Point point1){
-        //Does the GetSideLength math work stuff
+
+        double horizontalDistance = Math.pow(2,(point0.getX()-point1.getX()));
+        double verticalDistance = Math.pow(2,(point0.getY()- point1.getY()));
+        double totalDistance = horizontalDistance+verticalDistance;
+
+        return Math.sqrt(totalDistance);
     }
 
     public double GetPerimeter(){
-        //Does the Perimeter Math Work Stuff
+        double sum = 0;
+        for(int i = 0; i < listOfPoints.length; i++){
+            sum += GetSideLength(i);
+        }
+        return sum;
     }
 
 
